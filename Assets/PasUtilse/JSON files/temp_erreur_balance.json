@@ -1,0 +1,145 @@
+{
+    "hold" : [
+        {
+            "message" : "Ce produit est trop dangereux pour etre manipulé sans boucher son récipient ",
+            "danger": 2,
+            "gloves" : true,
+            "toxGlove" : null, 
+            "cap" : false
+        },
+        {
+            "message" : "Ce produit est trop dangereux pour etre manipulé sans gants ",
+            "danger": 2,
+            "gloves" : false,
+            "toxGlove" : null, 
+            "cap" : true
+        },
+        {
+            "message" : "Ce produit est trop tachant pour etre manipulé sans boucher son récipient ",
+            "danger": 1,
+            "gloves" : false,
+            "toxGlove" : null, 
+            "cap" : null
+        },
+        {
+            "message" : " Attention tu manipule cet objet avec des gants souillés par un produit chimique ",
+            "danger": 4,
+            "gloves" : true,
+            "toxGlove" : true, 
+            "cap" : null 
+        }
+
+    ],
+    
+    "fill" : [
+    {
+        "message" : " NE JAMAIS verser de l'eau dans de l'acide, c'est très dangereux ! ",
+        "container" : "$",
+        "pouredIn" : "Acide",
+        "newElement": "Eau",
+        "danger" : -1,
+        "place" : -1,
+        "maxFill" : -1,
+        "mix" : null
+    },
+    {
+        "message" : " Tu as oublié de melanger le contenu de la fiole ",
+        "container" :"fiole",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : -1,
+        "place" : -1,
+        "maxFill" : 50,
+        "mix" : false
+
+    },
+    {
+        "message" : " Tu a trop rempli la fiole, vide la et recommence ",
+        "container" :"fiole",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : -1,
+        "place" : -1,
+        "maxFill" : 70,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 2,
+        "place" : 2,
+        "maxFill" : -1,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 2,
+        "place" : 1,
+        "maxFill" : -1,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 2,
+        "place" : 0,
+        "maxFill" : -1,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 1,
+        "place" : 1,
+        "maxFill" : -1,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 1,
+        "place" : 0,
+        "maxFill" : -1,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 1,
+        "place" : 3,
+        "maxFill" : -1,
+        "mix" : null
+
+    },
+    {
+        "message" : " Cet endroit n'est pas adapté a la manipulation de ce type de produit  ",
+        "container" :"$",
+        "pouredIn" :"$",
+        "newElement" : "$",
+        "danger" : 0,
+        "place" : 0,
+        "maxFill" : -1,
+        "mix" : null
+
+    }
+]
+}

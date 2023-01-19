@@ -1,0 +1,32 @@
+
+{
+    "Contient": [
+        {
+            "Contenant" : "tube a essai",
+            "Contenu" : [{"nom" : "alcool",
+                        "quantite" : 1}],
+            "melange" : false,
+            "numero" : 1
+        },
+        {
+            "Contenant" :"tube a essai",
+            "Contenu" : [{"nom" : "alcool",
+                "quantite" : 1},
+                {"nom":"reactif de Lucas",
+                    "quantite": 4}],
+            "melange" : false,
+            "numero" : 2
+        },
+        {
+            "Contenant" :"tube a essai",
+            "Contenu" : [{"nom" : "alcool",
+                "quantite" : 1},
+                {"nom":"reactif de Lucas",
+                    "quantite": 4}],
+            "melange" : true,
+            "numero" : 3
+        }
+    ]
+}
+
+
