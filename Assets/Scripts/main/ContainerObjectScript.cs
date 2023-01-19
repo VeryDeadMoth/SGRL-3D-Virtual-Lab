@@ -57,6 +57,7 @@ public class ContainerObjectScript : MonoBehaviour
     public bool didTake = false;
 
 
+
     //************************************************************* FONCTIONS
 
     public void Start()
@@ -66,7 +67,10 @@ public class ContainerObjectScript : MonoBehaviour
         {
             material.SetFloat("_fill", shaderFill);
         }
+        
     }
+
+
 
     public void CapInteraction()
     {

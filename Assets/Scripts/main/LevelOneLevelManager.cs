@@ -69,6 +69,8 @@ public class LevelOneLevelManager : MonoBehaviour
     //mix
     public GameObject rotation;
 
+    Quaternion baseRot;
+
     //*********************************************************** FONCTIONS
 
     private void Awake() //inscription aux events
@@ -92,6 +94,11 @@ public class LevelOneLevelManager : MonoBehaviour
 
     void Update()
     {
+        /*if(objectHeld)
+        {
+            objectHeld.transform.position = handPlacement.transform.position;
+            objectHeld.transform.rotation = new Quaternion(objectHeld.transform.rotation.x, -handPlacement.transform.rotation.y, objectHeld.transform.rotation.z, objectHeld.transform.rotation.w);
+        }*/
         if (Input.GetMouseButtonDown(0) && mouseEnabled) //clique gauche
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -271,6 +278,8 @@ public class LevelOneLevelManager : MonoBehaviour
 
                 this.isHolding = true;
                 this.objectHeld = target;
+                baseRot = objectHeld.transform.rotation;
+                objectHeld.transform.SetParent(handPlacement.transform);
 
                 target.GetComponent<ContainerObjectScript>().GrabObject();
 
@@ -290,6 +299,8 @@ public class LevelOneLevelManager : MonoBehaviour
 
                 this.isHolding = true;
                 this.objectHeld = target;
+                baseRot = objectHeld.transform.rotation;
+                objectHeld.transform.SetParent(handPlacement.transform);
 
                 target.GetComponent<ContainerObjectScript>().GrabObject();
 
@@ -311,6 +322,8 @@ public class LevelOneLevelManager : MonoBehaviour
         {
             this.isHolding = true;
             this.objectHeld = target;
+            baseRot = objectHeld.transform.rotation;
+            objectHeld.transform.SetParent(handPlacement.transform);
 
             target.GetComponent<HoldingTool>().GrabObject(); //HOLDER
 
@@ -323,6 +336,8 @@ public class LevelOneLevelManager : MonoBehaviour
         {
             this.isHolding = true;
             this.objectHeld = target;
+            baseRot = objectHeld.transform.rotation;
+            objectHeld.transform.SetParent(handPlacement.transform);
 
             target.LeanMove(handPlacement.transform.position, 0.5f).setEaseOutQuart();
 
@@ -365,6 +380,8 @@ public class LevelOneLevelManager : MonoBehaviour
                 target.GetComponent<Placeholderscripttest>().scaleText.text = string.Format("{0:0.00}g", fakeWeight); //affiche quelque chose de faux
             }
 
+            objectHeld.transform.SetParent(transform.parent);
+            objectHeld.transform.rotation = baseRot;
             this.objectHeld = null;
 
             //placeholder will dissappear
@@ -391,6 +408,8 @@ public class LevelOneLevelManager : MonoBehaviour
         mouseEnabled = false;
         LeanTween.delayedCall(0.5f, EnableMouse);
 
+        objectHeld.transform.SetParent(transform.parent);
+        objectHeld.transform.rotation = baseRot;
         this.objectHeld = null;
 
     }

@@ -37,23 +37,24 @@ public class SpinSquare : MonoBehaviour
                 transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 
             }
+            if (transform.rotation.z != lastRot.z)
+            {
+                //print(transform.rotation.z);
+                //fiole.transform.rotation = Quaternion.Euler(-120,transform.rotation.z*3600,0);
+                fiole.transform.rotation = Quaternion.Euler(-120, transform.rotation.z * vit, 0);
+
+                //print("fiole = "+fiole.transform.rotation);
+
+                //on stoke a quel poitn ça a bougé 
+                enough = enough + Mathf.Abs(transform.rotation.z - lastRot.z);
+
+                //Debug.Log(enough);
+
+
+            }
         }
 
-        if (transform.rotation.z != lastRot.z)
-        {
-            //print(transform.rotation.z);
-            //fiole.transform.rotation = Quaternion.Euler(-120,transform.rotation.z*3600,0);
-            fiole.transform.rotation = Quaternion.Euler(-120, transform.rotation.z * vit, 0);
-            
-            //print("fiole = "+fiole.transform.rotation);
-            
-            //on stoke a quel poitn ça a bougé 
-            enough = enough + Mathf.Abs(transform.rotation.z - lastRot.z);
-      
-            //Debug.Log(enough);
-            
-
-        }
+        
         // si ça a assez bougé on valide le fait que ça soit melangé 
         if (enough > 5)
         {
