@@ -14,6 +14,7 @@ TagManager:
   - funnel
   - pipette
   - pipetteA
+  - cancelMix
   layers:
   - Default
   - TransparentFX

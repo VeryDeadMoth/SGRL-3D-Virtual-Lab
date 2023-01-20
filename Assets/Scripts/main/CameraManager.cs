@@ -9,12 +9,14 @@ public class CameraManager : MonoBehaviour
     Vector3 sorbonnePosition = new Vector3(7.95f,1.7f,-3.7f);
     Vector3 deskPosition = new Vector3(9.8f,1.55f,-3.6f);
     Vector3 cleanPosition = new Vector3(13.6f, 1.3f, 4);
+    Vector3 mixPosition = new Vector3(12.61f, 1.55f, -0.5f);
 
     //rotations
     Vector3 deskRotation = new Vector3(17.3f, 0, 0);
     Vector3 sorbonneRotation = new Vector3(10.7f, 180, 0);
     Vector3 balanceRotation = new Vector3(14.5f, 180, 0);
     Vector3 cleanRotation = new Vector3(18.1f, 180, 0);
+    Vector3 mixRotation = new Vector3(17.3f, 180, 0);
 
     //current placement 
     int currentPlacement; //0 = paillasse / 1 = balance / 2 = sorbonne
@@ -95,6 +97,25 @@ public class CameraManager : MonoBehaviour
         gameObject.LeanMove(deskPosition, 0.01f);
         gameObject.LeanRotate(deskRotation, 0.01f);
         GetComponent<Camera>().nearClipPlane = 0.3f;
+
+        currentPlacement = 0;
+        if (OnNewArea != null)
+        {
+            OnNewArea(currentPlacement); //event
+        }
+    }
+
+    public void GoToMix() // direction nettoyage  
+    {
+        gameObject.LeanMove(mixPosition, 0.01f);
+        gameObject.LeanRotate(mixRotation, 0.01f);
+        GetComponent<Camera>().nearClipPlane = 0.01f;
+    }
+    public void GoBackMix() // on repart a la paillasse 
+    {
+        gameObject.LeanMove(deskPosition, 0.01f);
+        gameObject.LeanRotate(deskRotation, 0.01f);
+        GetComponent<Camera>().nearClipPlane = 0.03f;
 
         currentPlacement = 0;
         if (OnNewArea != null)

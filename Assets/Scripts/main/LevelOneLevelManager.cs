@@ -66,8 +66,11 @@ public class LevelOneLevelManager : MonoBehaviour
 
     
     
-    //mix
+    [Header("Mix Part")]//mix
     public GameObject rotation;
+    public GameObject mixButton;
+    public GameObject cancelMixCube;
+    public GameObject pluMin;
 
     Quaternion baseRot;
 
@@ -117,6 +120,7 @@ public class LevelOneLevelManager : MonoBehaviour
                 }
                 else
                 {
+
                     if (!isHolding && (target.CompareTag("container") || target.CompareTag("holder") || target.CompareTag("funnel") || target.CompareTag("pissette"))) //si main vide et target est un container/funnel/holder/pissette
                     {
                         HoldObject(target);
@@ -159,6 +163,10 @@ public class LevelOneLevelManager : MonoBehaviour
                     {
                         isScaleOpen = !isScaleOpen;
                         OnScaleInteraction();
+                    }
+                    else if (target.CompareTag("cancelMix")) //si target est le mur a coté
+                    {
+                        DisableMix();
                     }
                 }
 
@@ -244,14 +252,23 @@ public class LevelOneLevelManager : MonoBehaviour
 
     }
 
-    void EnableMix() //permet de melanger le contenu d'une fiole
+    public void EnableMix() //permet de melanger le contenu d'une fiole
     {
+        pluMin.SetActive(false);
+        mixButton.SetActive(false);
+        cancelMixCube.SetActive(true);
         rotation.SetActive(true);
+        Camera.main.GetComponent<CameraManager>().GoToMix();
+
         rotation.GetComponent<SpinSquare>().fiole = objectHeld;
     }
 
-    void DisableMix()
+    public void DisableMix()
     {
+        pluMin.SetActive(true);
+        mixButton.SetActive(true);
+        cancelMixCube.SetActive(false);
+        Camera.main.GetComponent<CameraManager>().GoBackMix();
         rotation.SetActive(false);
     }
 
@@ -290,7 +307,8 @@ public class LevelOneLevelManager : MonoBehaviour
                 mouseEnabled = false;
                 LeanTween.delayedCall(0.5f, EnableMouse);
 
-                EnableMix(); //melange
+                //EnableMix(); //melange
+                mixButton.SetActive(true);
             }
             else
             {
@@ -352,7 +370,8 @@ public class LevelOneLevelManager : MonoBehaviour
 
         if (target.GetComponent<Placeholderscripttest>().isReachable && ((target.name.Equals("Placeholder Tube")&&objectHeld.name.Contains("Tube_Essai")) || !target.name.Equals("Placeholder Tube") && !objectHeld.name.Contains("Tube_Essai")))
         {
-            DisableMix();
+            //DisableMix();
+            mixButton.SetActive(false);
 
             this.isHolding = false;
 
