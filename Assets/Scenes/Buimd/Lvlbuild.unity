@@ -11449,6 +11449,9 @@ MonoBehaviour:
   - {fileID: 261050863}
   sliderImage: {fileID: 2011178859}
   rotation: {fileID: 1742023708}
+  mixButton: {fileID: 0}
+  cancelMixCube: {fileID: 0}
+  pluMin: {fileID: 0}
 --- !u!4 &587883020
 Transform:
   m_ObjectHideFlags: 0
@@ -11950,6 +11953,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 0f0503f8d4451364e9f39ef93793efad, type: 2}
   - {fileID: 2100000, guid: 2def045879abb564d84082be00ab73f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
