@@ -1,0 +1,46 @@
+{
+    "Contient": [
+        {
+            "container" : "becher",
+            "content" : {"KMnO4" : 15.8},
+            "melange" : false,
+            "numero" : 4
+        },
+        {
+            "container" : "becher",
+            "content" : {"KMnO4" : -1},
+            "melange" : false,
+            "numero" : 3
+        }
+        
+    ],
+    "Put" : [
+        {
+            "container" : "becher",
+            "content" : {},
+            "melange" : false,
+            "zone": "scale", 
+            "place" : 1,
+            "numero" : 2
+        },
+        {
+            "container" : "becher",
+            "content" : {},
+            "melange" : false,
+            "zone": "scale", 
+            "place" : 1,
+            "numero" : 5
+        }
+
+    ],
+    "take":[
+        {
+            "container" :"becher",
+            "numero" : 1 
+        },
+        {
+            "container" :"fiole200",
+            "numero" : 6
+        }
+    ]
+}
