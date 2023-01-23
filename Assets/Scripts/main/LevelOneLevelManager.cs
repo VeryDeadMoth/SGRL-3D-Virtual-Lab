@@ -257,10 +257,12 @@ public class LevelOneLevelManager : MonoBehaviour
         pluMin.SetActive(false);
         mixButton.SetActive(false);
         cancelMixCube.SetActive(true);
+        rotation.GetComponent<SpinSquare>().fiole = objectHeld;
         rotation.SetActive(true);
+        
         Camera.main.GetComponent<CameraManager>().GoToMix();
 
-        rotation.GetComponent<SpinSquare>().fiole = objectHeld;
+        
     }
 
     public void DisableMix()

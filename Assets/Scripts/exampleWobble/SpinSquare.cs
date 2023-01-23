@@ -6,21 +6,31 @@ public class SpinSquare : MonoBehaviour
 {
     public Camera cam;
     Vector3 localForward;
+    Vector3 basePos;
+    Quaternion baseRot;
     public Quaternion lastRot;
+
     public float speed;
-    public Rigidbody rigidbody;
     public GameObject fiole;
-    private float enough = 0;
+    public float enough = 0;
     public int vit = 36;
 
     void OnEnable()
     {
+        basePos = fiole.transform.localPosition;
+        baseRot = fiole.transform.localRotation;
+        fiole.transform.localPosition = new Vector3(-0.35f, 0.3f, 0.0f);
         lastRot = transform.rotation;
+    }
+    private void OnDisable()
+    {
+        fiole.transform.localPosition = basePos;
+        fiole.transform.localRotation = baseRot;
     }
 
     // Update is called once per frame
 
-    void Update()
+   void Update()
     {
         if (Input.GetMouseButton(0))
         {
@@ -34,6 +44,7 @@ public class SpinSquare : MonoBehaviour
             {
                 var dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
                 var angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+                angle += 180;
                 transform.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 
             }
