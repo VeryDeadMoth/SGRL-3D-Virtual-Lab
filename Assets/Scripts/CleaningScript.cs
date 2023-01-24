@@ -107,7 +107,7 @@ public class CleaningScript : MonoBehaviour
     {
         //***************** ATTENTION A BIEN CHANGER LE NOM DE L'OBJET QUI TIENT LE SCRIPT
         //print(gameObject.name);
-        return (gameObject.name.Equals("Fiole") && GetDirtAmount() < 0.8) || (gameObject.name.Equals("Erlenmeyer") && GetDirtAmount() < 0.06) || (gameObject.name.Equals("Becher") && GetDirtAmount() < 0.06);
+        return (gameObject.name.Equals("Fiole") && GetDirtAmount() < 0.9) || (gameObject.name.Equals("Erlenmeyer") && GetDirtAmount() < 0.1) || (gameObject.name.Equals("Becher") && GetDirtAmount() < 0.1);
 
     }
 
