@@ -11170,8 +11170,9 @@ MonoBehaviour:
   scaleDoorUp: {fileID: 55817085}
   isInSorbonne: 0
   sorbonnePlaceholders:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1197904029}
+  - {fileID: 792283894}
+  - {fileID: 679207490}
   toggleList1:
   - {fileID: 1906694771}
   - {fileID: 1457334300}
