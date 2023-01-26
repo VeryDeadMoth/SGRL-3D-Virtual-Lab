@@ -5,6 +5,9 @@ using UnityEngine;
 public class CleaningScript : MonoBehaviour
 {
 
+    //DEV DOOR
+    public bool DevDoor = false;
+
     public Texture2D dirtMaskBase;
     public Texture2D brush;
 
@@ -76,6 +79,11 @@ public class CleaningScript : MonoBehaviour
                 }
             }
         }
+        //DEV DOOR
+        else if (Input.GetMouseButton(2))
+        {
+            DevDoor = true;
+        }
     }
 
     void CreateTexture()
@@ -107,7 +115,7 @@ public class CleaningScript : MonoBehaviour
     {
         //***************** ATTENTION A BIEN CHANGER LE NOM DE L'OBJET QUI TIENT LE SCRIPT
         //print(gameObject.name);
-        return (gameObject.name.Equals("Fiole") && GetDirtAmount() < 0.9) || (gameObject.name.Equals("Erlenmeyer") && GetDirtAmount() < 0.1) || (gameObject.name.Equals("Becher") && GetDirtAmount() < 0.1);
+        return (DevDoor || gameObject.name.Equals("Fiole") && GetDirtAmount() < 0.9) || (gameObject.name.Equals("Erlenmeyer") && GetDirtAmount() < 0.1) || (gameObject.name.Equals("Becher") && GetDirtAmount() < 0.1);
 
     }
 
