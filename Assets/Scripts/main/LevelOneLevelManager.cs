@@ -12,10 +12,10 @@ public class LevelOneLevelManager : MonoBehaviour
     bool glovesAreUnclean = false;
 
     // objet tenu :
-    bool isHolding = false;
+    public bool isHolding = false;
 
     [SerializeField]
-    GameObject objectHeld = null;
+    public GameObject objectHeld = null;
 
     // zone / vue
     string area = "paillasse"; // -> change json as it is stated as "paillaisse"
@@ -58,7 +58,7 @@ public class LevelOneLevelManager : MonoBehaviour
     public List<GameObject> toggleList2;
 
     //await filling input -> si true, le joueur est en phase de remplissage (longue et non directe comme la cuilliere)
-    bool isAwaitingFillInput = false;
+    public bool isAwaitingFillInput = false;
     GameObject targetForInput;
 
     // jauge de content
@@ -411,11 +411,12 @@ public class LevelOneLevelManager : MonoBehaviour
 
     }
 
-    void ReturnTool()
+    public void ReturnTool()
     {
         this.isHolding = false;
 
         this.isAwaitingFillInput = false;
+        objectHeld.transform.SetParent(transform.parent);
 
         if (objectHeld.CompareTag("holder"))
         {
@@ -429,7 +430,7 @@ public class LevelOneLevelManager : MonoBehaviour
         mouseEnabled = false;
         LeanTween.delayedCall(0.5f, EnableMouse);
 
-        objectHeld.transform.SetParent(transform.parent);
+        
         objectHeld.transform.rotation = baseRot;
         this.objectHeld = null;
 

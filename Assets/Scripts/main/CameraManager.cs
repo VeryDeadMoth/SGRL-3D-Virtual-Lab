@@ -24,7 +24,7 @@ public class CameraManager : MonoBehaviour
     //events
     public delegate void IntEvent(int levelOfSecurity);
     public static event IntEvent OnNewArea; //nouvelle zone
-
+    public LevelOneLevelManager levelManager;
 
 
     // Start is called before the first frame update
