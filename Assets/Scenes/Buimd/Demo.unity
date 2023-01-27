@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644456fdf68245a418981274ffe2a655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DevDoor: 0
   dirtMaskBase: {fileID: 2800000, guid: 1ce6cf983d9b64547b2bbc4a4b208fc5, type: 3}
   brush: {fileID: 2800000, guid: 79e7e5ebd2fa541429cc05e30e514aeb, type: 3}
   material: {fileID: 2100000, guid: 9c58d3e6a017d53478a31de152320293, type: 2}
@@ -1249,6 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644456fdf68245a418981274ffe2a655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DevDoor: 0
   dirtMaskBase: {fileID: 2800000, guid: d837cfd85acb5214c8e619aec218973d, type: 3}
   brush: {fileID: 2800000, guid: 79e7e5ebd2fa541429cc05e30e514aeb, type: 3}
   material: {fileID: 2100000, guid: 724c683a6eb3f80498ba020ee863c85a, type: 2}
@@ -4107,6 +4109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26d01d6f82d64541a9c259fbf62b518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 587883019}
+  audioSource: {fileID: 998244803}
+  gameClip: {fileID: 8300000, guid: 6de624d93d8e29141a9d5b6ba3164045, type: 3}
+  cleanClip: {fileID: 8300000, guid: 0bc12a8a1f595af41be9b84a5b9050c8, type: 3}
 --- !u!114 &298796617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11159,6 +11165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5eaf65f5c479843b17b684b6673c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHolding: 0
   objectHeld: {fileID: 0}
   handPlacement: {fileID: 1203923883}
   weightGoal: 0
@@ -11189,6 +11196,7 @@ MonoBehaviour:
   - {fileID: 2017561726}
   - {fileID: 1392381081}
   - {fileID: 261050863}
+  isAwaitingFillInput: 0
   sliderImage: {fileID: 2011178859}
   rotation: {fileID: 1742023708}
   mixButton: {fileID: 913839101}
@@ -18629,6 +18637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644456fdf68245a418981274ffe2a655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DevDoor: 0
   dirtMaskBase: {fileID: 2800000, guid: 039de1e43d2b01046a589ecf56ca6a39, type: 3}
   brush: {fileID: 2800000, guid: 79e7e5ebd2fa541429cc05e30e514aeb, type: 3}
   material: {fileID: 2100000, guid: 724c683a6eb3f80498ba020ee863c85a, type: 2}
@@ -18664,6 +18673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644456fdf68245a418981274ffe2a655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DevDoor: 0
   dirtMaskBase: {fileID: 2800000, guid: 039de1e43d2b01046a589ecf56ca6a39, type: 3}
   brush: {fileID: 2800000, guid: 79e7e5ebd2fa541429cc05e30e514aeb, type: 3}
   material: {fileID: 2100000, guid: 724c683a6eb3f80498ba020ee863c85a, type: 2}
@@ -19470,6 +19480,134 @@ Transform:
   m_Father: {fileID: 630396783}
   m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 90.379, z: 0}
+--- !u!1 &998244802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998244804}
+  - component: {fileID: 998244803}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &998244803
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998244802}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6de624d93d8e29141a9d5b6ba3164045, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &998244804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998244802}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.346, y: 1.66, z: 3.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011908296
 GameObject:
   m_ObjectHideFlags: 0
@@ -25966,6 +26104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644456fdf68245a418981274ffe2a655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DevDoor: 0
   dirtMaskBase: {fileID: 2800000, guid: 039de1e43d2b01046a589ecf56ca6a39, type: 3}
   brush: {fileID: 2800000, guid: 79e7e5ebd2fa541429cc05e30e514aeb, type: 3}
   material: {fileID: 2100000, guid: 724c683a6eb3f80498ba020ee863c85a, type: 2}

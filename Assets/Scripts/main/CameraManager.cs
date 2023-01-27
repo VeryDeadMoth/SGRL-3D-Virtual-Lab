@@ -25,6 +25,12 @@ public class CameraManager : MonoBehaviour
     public delegate void IntEvent(int levelOfSecurity);
     public static event IntEvent OnNewArea; //nouvelle zone
     public LevelOneLevelManager levelManager;
+    GameObject objectWasHeld;
+
+    [Header("Music")]
+    public AudioSource audioSource;
+    public AudioClip gameClip;
+    public AudioClip cleanClip;
 
 
     // Start is called before the first frame update
@@ -88,12 +94,34 @@ public class CameraManager : MonoBehaviour
     //On s'occupe de la camera du nettoyage 
     public void GoToClean() // direction nettoyage  
     {
+        if (levelManager.objectHeld)
+        {
+            objectWasHeld = levelManager.objectHeld;
+            levelManager.objectHeld = null;
+            levelManager.isHolding = false;
+            objectWasHeld.transform.parent = transform.parent;
+            objectWasHeld.transform.position = objectWasHeld.GetComponent<HoldingTool>().originalPlacement;
+            objectWasHeld.GetComponent<HoldingTool>().EmptyObject();
+            print(objectWasHeld.transform.position);
+            print(objectWasHeld.GetComponent<HoldingTool>().originalPlacement);
+        }
+        audioSource.clip = cleanClip;
+        audioSource.enabled = false;
+        audioSource.enabled = true;
+
         gameObject.LeanMove(cleanPosition, 0.01f);
         gameObject.LeanRotate(cleanRotation, 0.01f);
         GetComponent<Camera>().nearClipPlane = 0.01f;
     }
     public void GoBackClean() // on repart a la paillasse 
     {
+        objectWasHeld.transform.position = objectWasHeld.GetComponent<HoldingTool>().originalPlacement;
+        objectWasHeld.GetComponent<HoldingTool>().EmptyObject();
+
+        audioSource.clip = gameClip;
+        audioSource.enabled = false;
+        audioSource.enabled = true;
+
         gameObject.LeanMove(deskPosition, 0.01f);
         gameObject.LeanRotate(deskRotation, 0.01f);
         GetComponent<Camera>().nearClipPlane = 0.3f;
