@@ -290,7 +290,7 @@ public class LevelOneLevelManager : MonoBehaviour
                 tempHiddenPlaceholder.GetComponent<Placeholderscripttest>().scaleText.text = "0,00g";
             }
 
-            if (target.name.Contains("Fiole")) //si objet est une fiole
+            if (!tempHiddenPlaceholder.name.Equals("Scale") || isScaleOpen)
             {
                 tempHiddenPlaceholder.SetActive(true);
                 tempHiddenPlaceholder.GetComponent<Placeholderscripttest>().occupyingObject = null;
@@ -302,33 +302,30 @@ public class LevelOneLevelManager : MonoBehaviour
 
                 target.GetComponent<ContainerObjectScript>().GrabObject();
 
+                if (target.name.Contains("Fiole")) //si objet est une fiole
+                {
 
-                Vector3 tempPosition = new Vector3(handPlacement.transform.position.x, handPlacement.transform.position.y+0.2f, handPlacement.transform.position.z);
-                target.LeanMove(tempPosition, 0.5f).setEaseOutQuart(); 
 
-                mouseEnabled = false;
-                LeanTween.delayedCall(0.5f, EnableMouse);
+                    Vector3 tempPosition = new Vector3(handPlacement.transform.position.x, handPlacement.transform.position.y + 0.2f, handPlacement.transform.position.z);
+                    target.LeanMove(tempPosition, 0.5f).setEaseOutQuart();
 
-                //EnableMix(); //melange
-                mixButton.SetActive(true);
+                    mouseEnabled = false;
+                    LeanTween.delayedCall(0.5f, EnableMouse);
+
+                    //EnableMix(); //melange
+                    mixButton.SetActive(true);
+                }
+                else
+                {
+                    
+
+                    target.LeanMove(handPlacement.transform.position, 0.5f).setEaseOutQuart();
+
+                    mouseEnabled = false;
+                    LeanTween.delayedCall(0.5f, EnableMouse);
+                }
             }
-            else
-            {
-                tempHiddenPlaceholder.SetActive(true);
-                tempHiddenPlaceholder.GetComponent<Placeholderscripttest>().occupyingObject = null;
-
-                this.isHolding = true;
-                this.objectHeld = target;
-                baseRot = objectHeld.transform.rotation;
-                objectHeld.transform.SetParent(handPlacement.transform);
-
-                target.GetComponent<ContainerObjectScript>().GrabObject();
-
-                target.LeanMove(handPlacement.transform.position, 0.5f).setEaseOutQuart();
-
-                mouseEnabled = false;
-                LeanTween.delayedCall(0.5f, EnableMouse);
-            }
+            
 
         }
         else if (target.CompareTag("pipette"))

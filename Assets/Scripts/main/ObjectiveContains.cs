@@ -22,7 +22,7 @@ public class ObjectiveContains : Objective
         //add ignore a specific element if needed
 
         //verification du dictionnaire (stricte)
-        Debug.Log("ohmama");
+        
         Debug.Log(obj.GetType());
         if (obj.GetType() == typeof(ObjectiveContains))
         {
