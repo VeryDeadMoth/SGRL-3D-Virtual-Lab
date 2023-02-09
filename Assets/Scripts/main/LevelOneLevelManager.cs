@@ -231,7 +231,8 @@ public class LevelOneLevelManager : MonoBehaviour
         toggleList2[this.protocole.objectivesCounter].GetComponent<Toggle>().isOn = true;
     }
 
-    void OnScaleInteraction() //interaction avec la balance -> changement statut placeholder  //****************************************************************** CHANGER POSITIONS
+    void OnScaleInteraction() //interaction avec la balance -> changement statut placeholder  (//****************************************************************** CHANGER POSITIONS)
+    //upon closing or opening the scale, if an object is placed on it, the object's collider will be deactivated or re-activated (prevents people from filling object if scale closed)
     {
         Placeholderscripttest tempScalePlaceholder = scalePlaceholder.GetComponent<Placeholderscripttest>();
         tempScalePlaceholder.isReachable = isScaleOpen;
@@ -244,10 +245,20 @@ public class LevelOneLevelManager : MonoBehaviour
         if (!isScaleOpen) //si elle etait ouverte mais on va fermer
         {
             scaleDoorUp.LeanMoveLocalY(-0.055f, 0.3f);
+            //if has an object
+            if (tempScalePlaceholder.occupyingObject!= null)
+            {
+                tempScalePlaceholder.occupyingObject.GetComponent<BoxCollider>().enabled = false;
+            }
         }
         else //si elle etait fermée mais on va ouvrir
         {
             scaleDoorUp.LeanMoveLocalY(0.055f, 0.3f);
+            //if has an object
+            if (tempScalePlaceholder.occupyingObject != null)
+            {
+                tempScalePlaceholder.occupyingObject.GetComponent<BoxCollider>().enabled = true;
+            }
         }
 
     }
