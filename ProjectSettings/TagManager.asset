@@ -15,6 +15,7 @@ TagManager:
   - pipette
   - pipetteA
   - cancelMix
+  - Bin
   layers:
   - Default
   - TransparentFX

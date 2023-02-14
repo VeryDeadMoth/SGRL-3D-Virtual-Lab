@@ -129,6 +129,12 @@ public class LevelOneLevelManager : MonoBehaviour
                     {
                         PlaceObject(target);
                     }
+                    else if (isHolding && target.CompareTag("Bin") && objectHeld.CompareTag("container")) // si main non vide et target est la poubelle et je tiens un container
+                    {
+                        Vector3 temp = new Vector3(-0.1f,0.35f,0);
+                        objectHeld.GetComponent<ContainerObjectScript>().EmptyObject(); //je vide mon container
+                        objectHeld.LeanMove(target.transform.position + temp, 0.4f).setEaseOutQuart().setLoopPingPong(1);
+                    }
                     else if (isHolding && target.CompareTag("container")) //si main non vide et target est un container 
                     {
                         if (!target.Equals(objectHeld)) //si target n'est pas l'objet tenu
