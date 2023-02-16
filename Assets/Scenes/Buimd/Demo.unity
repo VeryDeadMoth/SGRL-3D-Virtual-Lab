@@ -11176,7 +11176,7 @@ MonoBehaviour:
   handPlacement: {fileID: 1203923883}
   weightGoal: 0
   jsonErrorFile: {fileID: 4900000, guid: dd12ce8d64e397842a12b38d4176e5f8, type: 3}
-  jsonObjectiveFile: {fileID: 4900000, guid: b4f045f5302c69a4b88b9ed561e42c6e, type: 3}
+  jsonObjectiveFile: {fileID: 4900000, guid: e48b76baa1c45274aa266c52d092a095, type: 3}
   isScaleOpen: 0
   scalePlaceholder: {fileID: 29199989}
   isScaleBroken: 0
