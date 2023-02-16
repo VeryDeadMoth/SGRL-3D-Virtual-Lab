@@ -6,8 +6,13 @@
             "content" :{"eau":20},
             "melange" :false,
             "numero" :1
+        },
+        {
+            "container" : "becher",
+            "content" :{"HCl": 50},
+            "melange" :false,
+            "numero" :3
         }
-        
     ],
     "Put" : [
         {

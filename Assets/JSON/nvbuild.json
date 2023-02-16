@@ -27,7 +27,7 @@
         },
         {
             "container" : "fiole200",
-            "content" :{"KMnO4":15.8,"eau":100},
+            "content" :{"KMnO4":15.8,"eau":90},
             "melange" :true,
             "numero" :9
         },
