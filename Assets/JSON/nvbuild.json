@@ -66,6 +66,12 @@
             "content" : {"ppAcide": 3.5,"solC": 666},
             "melange" :false,
             "numero" : 15
+        },
+        {
+            "container" : "fiole200",
+            "content" :{"KMnO4":15.8,"eau":50},
+            "melange" :true,
+            "numero" :8
         }
         
     ],
@@ -85,13 +91,8 @@
             "zone": "scale", 
             "place" : 0,
             "numero" : 4
-        },
-        {
-            "container" : "fiole200",
-            "content" :{"KMnO4":15.8,"eau":70},
-            "melange" :true,
-            "numero" :8
         }
+        
 
     ],
     "take":[

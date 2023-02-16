@@ -70,7 +70,14 @@ public class ContainerObjectScript : MonoBehaviour
         
     }
 
-
+    public void Mixed()
+    {
+        ObjectiveContains objcd = new ObjectiveContains(containerName, elementsContained, wasMixed, -1);
+        if (ObjectHadSomethingHappenEvent != null)
+        {
+            ObjectHadSomethingHappenEvent(objcd);
+        }
+    }
 
     public void CapInteraction()
     {

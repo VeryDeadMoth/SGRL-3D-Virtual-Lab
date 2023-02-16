@@ -1,0 +1,28 @@
+
+{
+    "Contient": [
+        {
+            "container" : "fiole200",
+            "content" :{"eau":20},
+            "melange" :false,
+            "numero" :1
+        }
+        
+    ],
+    "Put" : [
+        {
+            "container" : "fiole200",
+            "content" : {"eau":20},
+            "melange" : false,
+            "zone": "sorbonne", 
+            "place" : 1,
+            "numero" : 2
+        }
+
+    ],
+    "take":[
+        
+    ]
+}
+
+

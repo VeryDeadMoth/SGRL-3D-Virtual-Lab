@@ -226,7 +226,7 @@ public class LevelOneLevelManager : MonoBehaviour
         }
         else
         {
-            area = "sorobnne";
+            area = "sorbonne";
         }
         
     }

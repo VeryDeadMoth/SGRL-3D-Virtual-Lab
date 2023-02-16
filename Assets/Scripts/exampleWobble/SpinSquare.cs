@@ -15,12 +15,16 @@ public class SpinSquare : MonoBehaviour
     public float enough = 0;
     public int vit = 36;
 
+    ContainerObjectScript ctScript;
+
     void OnEnable()
     {
         basePos = fiole.transform.localPosition;
         baseRot = fiole.transform.localRotation;
         fiole.transform.localPosition = new Vector3(-0.35f, 0.3f, 0.0f);
         lastRot = transform.rotation;
+
+        ctScript = fiole.GetComponent<ContainerObjectScript>();
     }
     private void OnDisable()
     {
@@ -67,9 +71,10 @@ public class SpinSquare : MonoBehaviour
 
         
         // si ça a assez bougé on valide le fait que ça soit melangé 
-        if (enough > 5)
+        if (enough > 5 && !ctScript.wasMixed)
         {
-            fiole.GetComponent<ContainerObjectScript>().wasMixed = true;
+            ctScript.wasMixed = true;
+            ctScript.Mixed();
         }
 
         lastRot = transform.rotation;

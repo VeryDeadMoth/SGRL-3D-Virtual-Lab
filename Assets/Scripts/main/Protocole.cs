@@ -78,8 +78,8 @@ public class Protocole
             dictionaryOfObjectives[obj] = true;
             objectivesCounter++;
 
-            Debug.Log(listOfObjectives.Count);
-            if (objectivesCounter == 7)
+            //Debug.Log(listOfObjectives.Count);
+            if (objectivesCounter == listOfObjectives.Count)
             {
                 LoadThis();   
             }
