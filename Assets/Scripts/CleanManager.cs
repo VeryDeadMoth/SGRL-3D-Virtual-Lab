@@ -11,6 +11,8 @@ public class CleanManager : MonoBehaviour
     int selectedObject; //indice de l'objet séléctionné
     public Camera cam; // la cam
 
+    private int objCount; //actual counter
+
     //positions
     Vector3 initialPosition = new Vector3(10,2.34f,3.79f);
     Vector3 centralPosition = new Vector3(13.6f, 1.21f, 3.79f);
@@ -35,6 +37,9 @@ public class CleanManager : MonoBehaviour
         fillInputPerCleaning = 1f / objectCounter;
         print(fillInputPerCleaning);
 
+        //set obj count
+        objCount = objectCounter;
+
         //par defaut : objets tous desactivés, tous placés à position initiale
         foreach (GameObject gObj in listOfObjects)
         {
@@ -46,7 +51,7 @@ public class CleanManager : MonoBehaviour
         CleaningScript.OnIsDoneCleaningEvent += NextObject;
 
         //premier objet activé
-        if (objectCounter > 0)
+        if (objCount > 0)
         {
             NewObjectToClean();
         }
@@ -69,7 +74,7 @@ public class CleanManager : MonoBehaviour
     void NextObject()
     {
         //regarde si il y a encore des objets à nettoyer (compteur)
-        if(objectCounter>1) //si oui (>1 pour que le nb dans objectCounter soit exactement le nb d'objet qui vont s'afficher
+        if(objCount > 1) //si oui (>1 pour que le nb dans objectCounter soit exactement le nb d'objet qui vont s'afficher
         {
 
             listOfObjects[selectedObject].LeanMove(finalPosition, 0.3f).setEaseOutQuart();//objet s'en va
@@ -81,7 +86,7 @@ public class CleanManager : MonoBehaviour
 
             LeanTween.delayedCall(0.3f, DisableObject); //on desactive l'objet
 
-            objectCounter--; //decrementation
+            objCount--; //decrementation
 
             LeanTween.delayedCall(0.5f, NewObjectToClean); //appel du nouvel objet
 

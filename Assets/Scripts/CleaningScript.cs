@@ -6,7 +6,7 @@ public class CleaningScript : MonoBehaviour
 {
 
     //DEV DOOR
-    public bool DevDoor = false;
+    public bool DevDoor;
 
     public Texture2D dirtMaskBase;
     public Texture2D brush;
@@ -26,6 +26,7 @@ public class CleaningScript : MonoBehaviour
 
     private void OnEnable()
     {
+        DevDoor = false;
         CreateTexture();
         gameObject.GetComponent<MeshCollider>().enabled = true;
     }
