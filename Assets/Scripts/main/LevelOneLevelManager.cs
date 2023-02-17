@@ -485,7 +485,7 @@ public class LevelOneLevelManager : MonoBehaviour
 
         Vector3 tempPosition = target.transform.position;
         tempPosition.y += target.GetComponent<Collider>().bounds.size.y + 0.02f;
-
+        ContainerObjectScript objectHeldScript = objectHeld.GetComponent<ContainerObjectScript>();
         ContainerObjectScript targetScript = target.GetComponent<ContainerObjectScript>();
 
         if (objectHeld.CompareTag("container") && (!targetScript.needsCap || (targetScript.needsCap && !targetScript.capIsOn))) //si on verse avec container
@@ -495,7 +495,8 @@ public class LevelOneLevelManager : MonoBehaviour
             {
                 targetScript.FillObject(pair.Key, pair.Value, objectHeld.GetComponent<ContainerObjectScript>().shaderFill,false);
             }
-
+            targetScript.pH = objectHeldScript.pH;
+            targetScript.weight = objectHeldScript.weight;
             objectHeld.GetComponent<ContainerObjectScript>().EmptyObject();
 
             objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);

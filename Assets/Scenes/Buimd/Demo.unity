@@ -346,6 +346,19 @@ MonoBehaviour:
   objectHeldWithin: {fileID: 1513993085}
   fillingValue: 0
   isRequiringInput: 0
+--- !u!65 &31921822
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31921815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016440261, y: 0.18972775, z: 0.016440261}
+  m_Center: {x: 0, y: 0.09542963, z: 0.000000011175871}
 --- !u!1001 &33549218
 PrefabInstance:
   m_ObjectHideFlags: 0
