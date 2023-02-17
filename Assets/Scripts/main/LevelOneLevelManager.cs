@@ -534,12 +534,12 @@ public class LevelOneLevelManager : MonoBehaviour
                 }
                 else //si pipette pasteur
                 {
+                    
                     targetScript.FillObject(holdingScript.containsName, holdingScript.containsQuantity, (1 - targetScript.shaderFill) / 3,false);
-                    holdingScript.containsQuantity -= 0.5f;
-                    if (holdingScript.containsQuantity < 0.1)
-                    {
-                        holdingScript.EmptyObject();
-                    }
+                    holdingScript.containsQuantity -= 3.5f;
+
+                    holdingScript.EmptyObject();
+                    
                 }
 
 
