@@ -27,6 +27,9 @@ public class CleanManager : MonoBehaviour
     public GameObject flecheMinus;
     public GameObject flechePlus;
 
+    //sponge
+    public GameObject sponge;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -66,9 +69,24 @@ public class CleanManager : MonoBehaviour
 
         //[temp] 
         GetComponent<GameManagerPopupTest1>().enabled = false;
+
+        
     }
 
-    
+    private void OnDisable()
+    {
+        sponge.SetActive(false);
+    }
+
+    //sponge
+    private void Update()
+    {
+        Vector3 vector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //sponge.transform.position = vector;
+
+        sponge.transform.position = new Vector3(vector.x, vector.y, 3.9f);
+    }
+
 
 
     void NextObject()
