@@ -49,7 +49,7 @@ public class ObjectivePlaceItem : Objective
             }
 
             //verification du reste
-            return flag && this.container.Equals(temp.container) && this.melange == temp.melange && this.zone.Equals(temp.zone) && this.place == temp.place;
+            return flag && this.container.Equals(temp.container) && this.melange == temp.melange && this.zone.Equals(temp.zone) && (this.place == temp.place || this.place == -1);
         }
         else
         {

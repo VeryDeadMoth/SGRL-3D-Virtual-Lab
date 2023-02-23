@@ -2,31 +2,99 @@
 {
     "Contient": [
         {
-            "container" : "fiole200",
-            "content" :{"eau":20},
-            "melange" :false,
-            "numero" :1
+            "container" : "becher",
+            "content" : {"KMnO4" : -1},
+            "melange" : false,
+            "numero" : 3
         },
         {
             "container" : "becher",
-            "content" :{"HCl": 50},
+            "content" : {"KMnO4" : 15.8},
+            "melange" : false,
+            "numero" : 5
+        },
+        {
+            "container" : "erlenmeyer",
+            "content" :{"KMnO4":15.8},
             "melange" :false,
-            "numero" :3
+            "numero" :6
+        },
+        {
+            "container" : "erlenmeyer",
+            "content" :{"KMnO4":15.8, "eau":50},
+            "melange" :false,
+            "numero" :7
+        },
+        {
+            "container" : "erlenmeyer",
+            "content" :{"KMnO4":15.8, "eau":50, "acideSulfurique": 3.5},
+            "melange" :false,
+            "numero" :9
+        },
+        {
+            "container" : "erlenmeyer",
+            "content" :{"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "melange" :false,
+            "numero" :10
+        },
+        {
+            "container" : "erlenmeyer",
+            "content" :{"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "melange" :true,
+            "numero" :11
+        },
+        {
+            "container":"tube a essai",
+            "content" : {"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "melange" :false,
+            "numero" : 12
+        },
+        {
+            "container":"tube a essai",
+            "content" : {"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "melange" :false,
+            "numero" : 13
+        },
+        {
+            "container":"tube a essai",
+            "content" : {"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "melange" :false,
+            "numero" : 14
         }
+        
     ],
     "Put" : [
         {
-            "container" : "fiole200",
-            "content" : {"eau":20},
+            "container" : "becher",
+            "content" : {},
             "melange" : false,
-            "zone": "sorbonne", 
+            "zone": "scale", 
             "place" : 1,
             "numero" : 2
+        },
+        {
+            "container" : "becher",
+            "content" : {"KMnO4" : -1},
+            "melange" : false,
+            "zone": "scale", 
+            "place" : 0,
+            "numero" : 4
+        },
+        {
+            "container" : "erlenmeyer",
+            "content" : {"KMnO4" : 15.8},
+            "melange" : false,
+            "zone": "sorbonne", 
+            "place" : 0,
+            "numero" : 8
         }
 
     ],
     "take":[
-        
+        {
+            "container" :"becher",
+            "numero" : 1 
+        }
     ]
 }
 
