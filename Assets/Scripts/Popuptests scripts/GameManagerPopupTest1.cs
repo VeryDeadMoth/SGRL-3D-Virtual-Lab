@@ -75,7 +75,8 @@ public class GameManagerPopupTest1 : MonoBehaviour
             newMessage.text = text;
 
             GameObject newText = Instantiate(panel, chatPanel.transform);
-
+            newText.GetComponent<Image>().color = new Color(1f,1f,1f,1f);
+            
             newMessage.panelInMessage = newText.gameObject;
 
             newMessage.panelInMessage.GetComponentInChildren<TMP_Text>().text = newMessage.text;

@@ -51,19 +51,19 @@
         }, 
         {
             "container":"tube a essai",
-            "content" : {"ppAcide": 3.5,"solA": 666},
+            "content" : {"ppAcide": 3.5,"solA": 10},
             "melange" :false,
             "numero" : 13
         },
         {
             "container":"tube a essai",
-            "content" : {"ppAcide": 3.5,"solB": 666},
+            "content" : {"ppAcide": 3.5,"solB": 10},
             "melange" :false,
             "numero" : 14
         },
         {
             "container":"tube a essai",
-            "content" : {"ppAcide": 3.5,"solC": 666},
+            "content" : {"ppAcide": 3.5,"solC": 10},
             "melange" :false,
             "numero" : 15
         },

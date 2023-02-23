@@ -535,7 +535,7 @@ public class LevelOneLevelManager : MonoBehaviour
                 else //si pipette pasteur
                 {
                     
-                    targetScript.FillObject(holdingScript.containsName, holdingScript.containsQuantity, (1 - targetScript.shaderFill) / 3,false);
+                    targetScript.FillObject(holdingScript.containsName, holdingScript.containsQuantity, 1,false);
                     holdingScript.containsQuantity -= 3.5f;
 
                     holdingScript.EmptyObject();
