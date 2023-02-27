@@ -21,7 +21,15 @@ public class SpinSquare : MonoBehaviour
     {
         basePos = fiole.transform.localPosition;
         baseRot = fiole.transform.localRotation;
-        fiole.transform.localPosition = new Vector3(-0.35f, 0.3f, 0.0f);
+        
+        if (fiole.name.Contains("fiole"))
+        {
+            fiole.transform.localPosition = new Vector3(-0.35f, 0.3f, 0.0f);
+        }
+        else
+        {
+            fiole.transform.localPosition = new Vector3(-0.35f, 0.1f, 0.0f);
+        }
         lastRot = transform.rotation;
 
         ctScript = fiole.GetComponent<ContainerObjectScript>();
@@ -56,7 +64,15 @@ public class SpinSquare : MonoBehaviour
             {
                 //print(transform.rotation.z);
                 //fiole.transform.rotation = Quaternion.Euler(-120,transform.rotation.z*3600,0);
-                fiole.transform.rotation = Quaternion.Euler(-120, transform.rotation.z * vit, 0);
+                if (fiole.name.Contains("fiole"))
+                {
+                    fiole.transform.rotation = Quaternion.Euler(-120, transform.rotation.z * vit, 0);
+                }
+                else
+                {
+                    fiole.transform.rotation = Quaternion.Euler(-30, transform.rotation.z * vit, 0);
+                }
+                
 
                 //print("fiole = "+fiole.transform.rotation);
 

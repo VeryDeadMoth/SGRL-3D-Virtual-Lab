@@ -319,11 +319,19 @@ public class LevelOneLevelManager : MonoBehaviour
 
                 target.GetComponent<ContainerObjectScript>().GrabObject();
 
-                if (target.name.Contains("Fiole")) //si objet est une fiole
+                if (target.name.Contains("Fiole")||target.name.Contains("Erlenmeyer")) //si objet est une fiole ou un erlenmeyer
                 {
+                    Vector3 tempPosition;
 
-
-                    Vector3 tempPosition = new Vector3(handPlacement.transform.position.x, handPlacement.transform.position.y + 0.2f, handPlacement.transform.position.z);
+                    if (target.name.Contains("fiole"))
+                    {
+                        tempPosition = new Vector3(handPlacement.transform.position.x, handPlacement.transform.position.y + 0.2f, handPlacement.transform.position.z);
+                    }
+                    else
+                    {
+                        tempPosition = handPlacement.transform.position;
+                    }
+                       
                     target.LeanMove(tempPosition, 0.5f).setEaseOutQuart();
 
                     mouseEnabled = false;
@@ -494,6 +502,8 @@ public class LevelOneLevelManager : MonoBehaviour
             foreach (KeyValuePair<string, float> pair in objectHeld.GetComponent<ContainerObjectScript>().elementsContained)
             {
                 targetScript.FillObject(pair.Key, pair.Value, objectHeld.GetComponent<ContainerObjectScript>().shaderFill,false);
+
+                //Debug.LogError(pair.Key + ", " + pair.Value);
             }
             targetScript.pH = objectHeldScript.pH;
             targetScript.weight = objectHeldScript.weight;

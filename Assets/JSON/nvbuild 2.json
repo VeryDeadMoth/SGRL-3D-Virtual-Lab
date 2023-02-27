@@ -33,31 +33,31 @@
         },
         {
             "container" : "erlenmeyer",
-            "content" :{"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "content" :{"KMnO4":15.8, "eau":100, "acideSulfurique": 3.5},
             "melange" :false,
             "numero" :10
         },
         {
             "container" : "erlenmeyer",
-            "content" :{"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "content" :{"KMnO4":15.8, "eau":100, "acideSulfurique": 3.5},
             "melange" :true,
             "numero" :11
         },
         {
             "container":"tube a essai",
-            "content" : {"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "content" : {"KMnO4":15.8, "eau":100, "acideSulfurique": 3.5},
             "melange" :false,
             "numero" : 12
         },
         {
             "container":"tube a essai",
-            "content" : {"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "content" : {"KMnO4":15.8, "eau":100, "acideSulfurique": 3.5},
             "melange" :false,
             "numero" : 13
         },
         {
             "container":"tube a essai",
-            "content" : {"KMnO4":15.8, "eau":90, "acideSulfurique": 3.5},
+            "content" : {"KMnO4":15.8, "eau":100, "acideSulfurique": 3.5},
             "melange" :false,
             "numero" : 14
         }
@@ -82,10 +82,10 @@
         },
         {
             "container" : "erlenmeyer",
-            "content" : {"KMnO4" : 15.8},
+            "content" : {"KMnO4" : 15.8,"eau":50},
             "melange" : false,
             "zone": "sorbonne", 
-            "place" : 0,
+            "place" : -1,
             "numero" : 8
         }
 

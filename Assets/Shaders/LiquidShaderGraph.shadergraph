@@ -449,8 +449,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 635.9999389648438,
-            "y": 282.9999694824219
+            "x": 1000.9999389648438,
+            "y": 354.0
         },
         "m_Blocks": [
             {
@@ -1688,10 +1688,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -439.999755859375,
-            "y": -498.0,
-            "width": 207.99945068359376,
-            "height": 325.99993896484377
+            "x": -311.9999694824219,
+            "y": -346.0,
+            "width": 208.0,
+            "height": 326.0
         }
     },
     "m_Slots": [
@@ -1960,7 +1960,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Alpha",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 0.949999988079071,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
