@@ -17,6 +17,7 @@ public class Sponge : MonoBehaviour
     private void OnMouseDown()
     {
         particles.SetActive(true);
+        print("a");
     }
 
     private void OnMouseUp()
