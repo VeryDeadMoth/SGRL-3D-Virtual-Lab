@@ -70,24 +70,14 @@ public class CleanManager : MonoBehaviour
         //[temp] 
         GetComponent<GameManagerPopupTest1>().enabled = false;
 
-        
+        sponge.SetActive(true);
+
     }
 
     private void OnDisable()
     {
         sponge.SetActive(false);
     }
-
-    //sponge
-    private void Update()
-    {
-        Vector3 vector = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //sponge.transform.position = vector;
-
-        sponge.transform.position = new Vector3(vector.x, vector.y, 3.9f);
-    }
-
-
 
     void NextObject()
     {
