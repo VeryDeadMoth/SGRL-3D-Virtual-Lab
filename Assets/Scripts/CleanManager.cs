@@ -90,13 +90,13 @@ public class CleanManager : MonoBehaviour
             particles.Play(); //activation des particules
 
             //update de la barre
-            LeanTween.value(sliderImage,UpdateValue,sliderImage.GetComponent<Image>().fillAmount, sliderImage.GetComponent<Image>().fillAmount + fillInputPerCleaning, 0.2f).setEaseOutCubic();
+            LeanTween.value(sliderImage,UpdateValue,sliderImage.GetComponent<Image>().fillAmount, sliderImage.GetComponent<Image>().fillAmount + fillInputPerCleaning, 0.5f).setEaseOutCubic();
 
             LeanTween.delayedCall(1f, DisableObject); //on desactive l'objet
 
             objCount--; //decrementation
 
-            LeanTween.delayedCall(1.5f, NewObjectToClean); //appel du nouvel objet
+            LeanTween.delayedCall(1.1f, NewObjectToClean); //appel du nouvel objet
 
         }
         else //sinon
@@ -111,7 +111,7 @@ public class CleanManager : MonoBehaviour
             LeanTween.delayedCall(1f, DisableObject); //on desactive l'objet
 
             // on desactive le script nettoyage 
-            LeanTween.delayedCall(2f, DisableSelf);
+            LeanTween.delayedCall(1.5f, DisableSelf);
 
         }
     }
