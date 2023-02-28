@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2920924cfa5df47955884eabdf8c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: 
+  containerName: tube a essai
   needsCap: 1
   capIsOn: 1
   cap: {fileID: 397899489}
@@ -2811,7 +2811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2920924cfa5df47955884eabdf8c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: 
+  containerName: tube a essai
   needsCap: 1
   capIsOn: 1
   cap: {fileID: 532503021}
@@ -8228,6 +8228,8 @@ MonoBehaviour:
   objectHeldWithin: {fileID: 1437309931}
   fillingValue: 0.01
   isRequiringInput: 0
+  asWeight: 0
+  source: {fileID: 0}
 --- !u!65 &535297790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13820,6 +13822,8 @@ MonoBehaviour:
   objectHeldWithin: {fileID: 1420934774}
   fillingValue: 0
   isRequiringInput: 0
+  asWeight: 0
+  source: {fileID: 0}
 --- !u!65 &697847301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15052,6 +15056,8 @@ MonoBehaviour:
   objectHeldWithin: {fileID: 1934207916}
   fillingValue: 0
   isRequiringInput: 0
+  asWeight: 0
+  source: {fileID: 0}
 --- !u!65 &783008800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17255,6 +17261,8 @@ MonoBehaviour:
   objectHeldWithin: {fileID: 946928042}
   fillingValue: 0.01
   isRequiringInput: 0
+  asWeight: 0
+  source: {fileID: 0}
 --- !u!65 &881680129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36266,7 +36274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2920924cfa5df47955884eabdf8c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  containerName: 
+  containerName: tube a essai
   needsCap: 1
   capIsOn: 1
   cap: {fileID: 1846523522}
@@ -46915,6 +46923,8 @@ MonoBehaviour:
   objectHeldWithin: {fileID: 788161282}
   fillingValue: 0
   isRequiringInput: 0
+  asWeight: 1
+  source: {fileID: 0}
 --- !u!65 &7479395448093266878
 BoxCollider:
   m_ObjectHideFlags: 0

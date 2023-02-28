@@ -599,6 +599,7 @@ public class LevelOneLevelManager : MonoBehaviour
                     foreach (KeyValuePair<string, float> pair in targetScript.elementsContained)
                     {
                         tempDico.Add(pair.Key, pair.Value);
+                        Debug.LogWarning(pair.Key + " : " + pair.Value);
                     }
 
                     holdingScript.FillObject(tempDico);
