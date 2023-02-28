@@ -484,7 +484,10 @@ public class LevelOneLevelManager : MonoBehaviour
             mouseEnabled = false;
             LeanTween.delayedCall(0.8f, EnableMouse);
 
-            objectHeld.GetComponent<HoldingTool>().FillObject(target.GetComponent<HoldingTool>().containsName, target.GetComponent<HoldingTool>().containsQuantity);
+
+            Dictionary<string, float> tempDict = new Dictionary<string, float>();
+            tempDict.Add(target.GetComponent<HoldingTool>().containsName, target.GetComponent<HoldingTool>().containsQuantity);
+            objectHeld.GetComponent<HoldingTool>().FillObject(tempDict);
         }
     }
 
@@ -498,6 +501,7 @@ public class LevelOneLevelManager : MonoBehaviour
 
         if (objectHeld.CompareTag("container") && (!targetScript.needsCap || (targetScript.needsCap && !targetScript.capIsOn))) //si on verse avec container
         {
+            print(objectHeld.GetComponent<ContainerObjectScript>().elementsContained.Count);
             //check fill errors
             foreach (KeyValuePair<string, float> pair in objectHeld.GetComponent<ContainerObjectScript>().elementsContained)
             {
@@ -520,6 +524,25 @@ public class LevelOneLevelManager : MonoBehaviour
             if (holdingScript.isFull)
             {
                 //check fill errors
+                if(holdingScript.source != target)
+                {
+                    foreach (KeyValuePair<string, float> pair in holdingScript.elementsContained)
+                    {
+                        targetScript.FillObject(pair.Key, pair.Value, holdingScript.fillingValue, holdingScript.asWeight);
+                    }
+                    holdingScript.EmptyObject();
+                    objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
+                    mouseEnabled = false;
+                    LeanTween.delayedCall(0.8f, EnableMouse);
+                }
+                else
+                {
+                    holdingScript.EmptyObject();
+                    objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
+                    mouseEnabled = false;
+                    LeanTween.delayedCall(0.8f, EnableMouse);
+                }
+
                 /*foreach (KeyValuePair<string, float> pair in targetScript.elementsContained)
                 {
                     ErrorFilling error = new ErrorFilling("", targetScript.containerName, pair.Key, holdingScript.containsName, targetScript.danger, targetScript.hiddenPlaceholder.GetComponent<Placeholderscripttest>().place, targetScript.fill, targetScript.wasMixed);
@@ -536,7 +559,7 @@ public class LevelOneLevelManager : MonoBehaviour
                 }*/
 
 
-                if (!objectHeld.name.Equals("Pipette pasteur")) //si pas pipette pasteur
+                /*if (!objectHeld.name.Equals("Pipette pasteur")) //si pas pipette pasteur
                 {
                     targetScript.FillObject(holdingScript.containsName, holdingScript.containsQuantity, holdingScript.fillingValue,true); //AS WEIGHT
 
@@ -545,12 +568,12 @@ public class LevelOneLevelManager : MonoBehaviour
                 else //si pipette pasteur
                 {
                     
-                    targetScript.FillObject(holdingScript.containsName, holdingScript.containsQuantity, 1,false);
+                    targetScript.FillObject(holdingScript.containsName, holdingScript.containsQuantity, holdingScript.fillingValue, false);
                     holdingScript.containsQuantity -= 3.5f;
-
                     holdingScript.EmptyObject();
                     
-                }
+                }*/
+
 
 
                 if (!isAwaitingFillInput)
@@ -566,17 +589,29 @@ public class LevelOneLevelManager : MonoBehaviour
             else //si holding tool vide, prelevement
             {
                 //check prelevement errors
-
-                if (targetScript.weight > 0) //prelevement seulement si poids pas nul
+                //Debug.LogWarning(targetScript.elementsContained["KMnO4"]);
+                if (targetScript.elementsContained.Count != 0) //prelevement seulement si poids pas nul
                 {
-                    targetScript.TakeFromObject(0f, 0,true);
 
-                    holdingScript.FillObject("", 0);
+                    targetScript.TakeFromObject(0f, 0,holdingScript.asWeight);
+                    holdingScript.source = target;
+                    Dictionary<string, float> tempDico = new Dictionary<string, float>();
+                    foreach (KeyValuePair<string, float> pair in targetScript.elementsContained)
+                    {
+                        tempDico.Add(pair.Key, pair.Value);
+                    }
+
+                    holdingScript.FillObject(tempDico);
                 }
-
+                else
+                {
+                    print("aaa");
+                }
+                
                 objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
                 mouseEnabled = false;
                 LeanTween.delayedCall(0.8f, EnableMouse);
+                //Debug.LogWarning(targetScript.elementsContained["KMnO4"]);
             }
 
 

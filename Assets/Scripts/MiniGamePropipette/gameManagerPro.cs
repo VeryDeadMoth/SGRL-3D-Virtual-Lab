@@ -344,7 +344,9 @@ public class gameManagerPro : MonoBehaviour
             mouseEnabled = false;
             LeanTween.delayedCall(0.8f, EnableMouse);
 
-            objectHeld.GetComponent<HoldingTool>().FillObject(target.GetComponent<HoldingTool>().containsName, target.GetComponent<HoldingTool>().containsQuantity);
+            Dictionary<string, float> tempDict = new Dictionary<string, float>();
+            tempDict.Add(target.GetComponent<HoldingTool>().containsName, target.GetComponent<HoldingTool>().containsQuantity);
+            objectHeld.GetComponent<HoldingTool>().FillObject(tempDict);
         }
     }
 

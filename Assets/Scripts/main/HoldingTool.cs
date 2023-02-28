@@ -24,10 +24,14 @@ public class HoldingTool : MonoBehaviour
 
     //demande besoin interaction pour vider
     public bool isRequiringInput;
+    public bool asWeight;
+    public GameObject source;
 
     //event -> pour les objectifs
     public delegate void ObjectHadSomethingHappen(Objective objective);
     public static event ObjectHadSomethingHappen ObjectHadSomethingHappenEvent;
+
+    public Dictionary<string, float> elementsContained;
 
     //************************************************************* FONCTIONS
 
@@ -40,20 +44,23 @@ public class HoldingTool : MonoBehaviour
         }
     }
 
-    public void FillObject(string putInName, float putInQuatity) // remplir
+    public void FillObject(Dictionary<string, float> containerDict) // remplir
     {
         objectHeldWithin.SetActive(true);
-        this.containsName = putInName;
-        this.containsQuantity = putInQuatity;
+        elementsContained = containerDict;
+        /*this.containsName = putInName;
+        this.containsQuantity = putInQuatity;*/
         this.isFull = true;
     }
 
     public void EmptyObject() //vider
     {
         objectHeldWithin.SetActive(false);
-        this.containsName = null;
-        this.containsQuantity = 0;
+        /*this.containsName = null;
+        this.containsQuantity = 0;*/
+        elementsContained.Clear();
         this.isFull = false;
+        source = null;
     }
 
     public void GrabObject()

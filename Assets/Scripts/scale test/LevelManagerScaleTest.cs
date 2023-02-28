@@ -270,8 +270,10 @@ public class LevelManagerScaleTest : MonoBehaviour
                 if (targetScript.weight > 0) //prelevement seulement si poids pas nul
                 {
                     //targetScript.TakeFromObject(0f, weightGoal);
-
-                    holdingScript.FillObject("", 0);
+                    Dictionary<string, float> tempDict = new Dictionary<string, float>();
+                    tempDict.Add("", 0);
+                    holdingScript.FillObject(tempDict);
+                    
                 }
                 
                 objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
@@ -306,7 +308,9 @@ public class LevelManagerScaleTest : MonoBehaviour
             
             StartCoroutine(TimeUntilMouseEnables(0.8f)); //animation time
 
-            objectHeld.GetComponent<HoldingTool>().FillObject(target.GetComponent<HoldingTool>().containsName, target.GetComponent<HoldingTool>().containsQuantity);
+            Dictionary<string, float> tempDict = new Dictionary<string, float>();
+            tempDict.Add(target.GetComponent<HoldingTool>().containsName, target.GetComponent<HoldingTool>().containsQuantity);
+            objectHeld.GetComponent<HoldingTool>().FillObject(tempDict);
         }
     }
 
