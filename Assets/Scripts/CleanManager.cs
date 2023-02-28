@@ -85,42 +85,47 @@ public class CleanManager : MonoBehaviour
         if(objCount > 1) //si oui (>1 pour que le nb dans objectCounter soit exactement le nb d'objet qui vont s'afficher
         {
 
-            listOfObjects[selectedObject].LeanMove(finalPosition, 0.3f).setEaseOutQuart();//objet s'en va
+            listOfObjects[selectedObject].LeanMove(finalPosition, 1f).setEaseOutQuart();//objet s'en va
 
             particles.Play(); //activation des particules
 
             //update de la barre
             LeanTween.value(sliderImage,UpdateValue,sliderImage.GetComponent<Image>().fillAmount, sliderImage.GetComponent<Image>().fillAmount + fillInputPerCleaning, 0.2f).setEaseOutCubic();
 
-            LeanTween.delayedCall(0.3f, DisableObject); //on desactive l'objet
+            LeanTween.delayedCall(1f, DisableObject); //on desactive l'objet
 
             objCount--; //decrementation
 
-            LeanTween.delayedCall(0.5f, NewObjectToClean); //appel du nouvel objet
+            LeanTween.delayedCall(1.5f, NewObjectToClean); //appel du nouvel objet
 
         }
         else //sinon
         {
-            listOfObjects[selectedObject].LeanMove(finalPosition, 0.3f).setEaseOutQuart();//objet s'en va
+            listOfObjects[selectedObject].LeanMove(finalPosition,1f).setEaseOutQuart();//objet s'en va
 
             particles.Play(); //activation des particules
 
             //update de la barre
             LeanTween.value(sliderImage, UpdateValue, sliderImage.GetComponent<Image>().fillAmount, sliderImage.GetComponent<Image>().fillAmount + fillInputPerCleaning, 0.5f).setEaseOutCubic();
 
-            LeanTween.delayedCall(0.3f, DisableObject); //on desactive l'objet
+            LeanTween.delayedCall(1f, DisableObject); //on desactive l'objet
 
-            cam.GetComponent<CameraManager>().GoBackClean(); // on retounr e a la paillasse 
-            //on reactive l'ui 
-            flecheMinus.SetActive(true);
-            flechePlus.SetActive(true);
             // on desactive le script nettoyage 
-            GetComponent<CleanManager>().enabled = false;
-            //[temp]
-            GetComponent<GameManagerPopupTest1>().enabled = true;
+            LeanTween.delayedCall(2f, DisableSelf);
 
-            print("DONE!");
         }
+    }
+
+    void DisableSelf()
+    {
+        cam.GetComponent<CameraManager>().GoBackClean(); // on retourne à la paillasse 
+        //on reactive l'ui 
+        flecheMinus.SetActive(true);
+        flechePlus.SetActive(true);
+        GetComponent<GameManagerPopupTest1>().enabled = true;
+
+        GetComponent<CleanManager>().enabled = false;
+
     }
 
     void NewObjectToClean()
@@ -129,7 +134,7 @@ public class CleanManager : MonoBehaviour
 
         listOfObjects[selectedObject].transform.position = initialPosition; //place l'objet en position initiale
 
-        listOfObjects[selectedObject].LeanMove(centralPosition, 0.3f).setEaseOutQuart();//objet arrive
+        listOfObjects[selectedObject].LeanMove(centralPosition, 1f).setEaseOutQuart();//objet arrive
 
         listOfObjects[selectedObject].SetActive(true); //objet activé
     }

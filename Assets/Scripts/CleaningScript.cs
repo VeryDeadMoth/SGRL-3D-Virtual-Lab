@@ -73,7 +73,7 @@ public class CleaningScript : MonoBehaviour
                     if (OnIsDoneCleaningEvent != null)
                     {
                         OnIsDoneCleaningEvent();
-                        print("is done cleaning");
+                        //print("is done cleaning");
                         gameObject.GetComponent<MeshCollider>().enabled = false; // empeche collision plus tard
                     }
                     
