@@ -524,24 +524,19 @@ public class LevelOneLevelManager : MonoBehaviour
             if (holdingScript.isFull)
             {
                 //check fill errors
-                if(holdingScript.source != target)
+                
+                
+                foreach (KeyValuePair<string, float> pair in holdingScript.elementsContained)
                 {
-                    foreach (KeyValuePair<string, float> pair in holdingScript.elementsContained)
-                    {
-                        targetScript.FillObject(pair.Key, pair.Value, holdingScript.fillingValue, holdingScript.asWeight);
-                    }
-                    holdingScript.EmptyObject();
-                    objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
-                    mouseEnabled = false;
-                    LeanTween.delayedCall(0.8f, EnableMouse);
+                    targetScript.FillObject(pair.Key, pair.Value, holdingScript.fillingValue, holdingScript.asWeight);
                 }
-                else
-                {
-                    holdingScript.EmptyObject();
-                    objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
-                    mouseEnabled = false;
-                    LeanTween.delayedCall(0.8f, EnableMouse);
-                }
+                holdingScript.EmptyObject();
+                //objectHeld.LeanMove(tempPosition, 0.4f).setEaseOutQuart().setLoopPingPong(1);
+                mouseEnabled = false;
+                LeanTween.delayedCall(0.8f, EnableMouse);
+                
+                
+                
 
                 /*foreach (KeyValuePair<string, float> pair in targetScript.elementsContained)
                 {
