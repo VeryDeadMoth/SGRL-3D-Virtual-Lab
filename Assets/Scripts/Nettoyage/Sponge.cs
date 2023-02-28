@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sponge : MonoBehaviour
 {
-    public GameObject particles;
+    public ParticleSystem particles;
     // Update is called once per frame
     void Update()
     {
@@ -12,16 +12,15 @@ public class Sponge : MonoBehaviour
         mousePosition.z = 0.1f;
         transform.position = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            particles.Play();
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            particles.Stop();
+        }
+
     }
 
-    private void OnMouseDown()
-    {
-        particles.SetActive(true);
-        print("a");
-    }
-
-    private void OnMouseUp()
-    {
-        particles.SetActive(false);
-    }
 }

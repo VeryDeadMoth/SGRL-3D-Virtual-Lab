@@ -10525,7 +10525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &545626305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10606,7 +10606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa3c7e749518adf4e8dcef8744444425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 1148079386}
+  particles: {fileID: 1148079389}
 --- !u!1 &545787255
 GameObject:
   m_ObjectHideFlags: 0
@@ -22856,7 +22856,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -22912,7 +22912,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
