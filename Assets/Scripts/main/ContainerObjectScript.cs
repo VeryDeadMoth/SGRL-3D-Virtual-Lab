@@ -16,6 +16,7 @@ public class ContainerObjectScript : MonoBehaviour
     //bouchon
     public bool needsCap;
     public bool capIsOn = false;
+    public bool funnelIsOn = false;
     public GameObject cap;
 
     //danger
@@ -81,7 +82,7 @@ public class ContainerObjectScript : MonoBehaviour
 
     public void CapInteraction()
     {
-        if (needsCap)
+        if (needsCap && !funnelIsOn)
         {
             capIsOn = !capIsOn;
             cap.SetActive(capIsOn);

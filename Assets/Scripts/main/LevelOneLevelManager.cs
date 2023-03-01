@@ -123,7 +123,17 @@ public class LevelOneLevelManager : MonoBehaviour
 
                     if (!isHolding && (target.CompareTag("container") || target.CompareTag("holder") || target.CompareTag("funnel") || target.CompareTag("pissette"))) //si main vide et target est un container/funnel/holder/pissette
                     {
+                        try{
+                           
+                            if (target.CompareTag("funnel") && target.transform.parent.GetComponent<ContainerObjectScript>().funnelIsOn == true)
+                            {
+                                target.transform.parent.GetComponent<ContainerObjectScript>().funnelIsOn = false;
+                            }
+                        }
+                        catch{ }
+                        
                         HoldObject(target);
+                        
                     }
                     else if (isHolding && target.CompareTag("placeholder") && objectHeld.CompareTag("container")) // si main non vide et target est un placeholder et je tiens un container
                     {
@@ -140,9 +150,15 @@ public class LevelOneLevelManager : MonoBehaviour
                         if (!target.Equals(objectHeld)) //si target n'est pas l'objet tenu
                         {
                             //check fill errors before filling -> prevents you from filling if error detected (within fill container)
-                            if (objectHeld.CompareTag("funnel") && target.name.Contains("Fiole")) //si je tiens funnel et container est fiole
+                            if (objectHeld.CompareTag("funnel") && target.name.Contains("Erlenmeyer") && !target.GetComponent<ContainerObjectScript>().capIsOn) //si je tiens funnel et container est erlenmeyer
                             {
-
+                                isHolding = false;
+                                objectHeld.transform.parent = target.transform;
+                                target.GetComponent<ContainerObjectScript>().funnelIsOn = true; 
+                                objectHeld.LeanRotate(new Vector3(0, 0, 0), 0.5f);
+                                Vector3 funnelPos = new Vector3(target.transform.position.x, target.transform.position.y + 0.17f, target.transform.position.z);
+                                objectHeld.LeanMove(funnelPos, 0.5f).setEaseOutQuart();
+                                this.objectHeld = null;
                             }
                             /*else if (objectHeld.CompareTag("pissette")) //si l'objet tenu est une pissette
                             {
@@ -161,6 +177,7 @@ public class LevelOneLevelManager : MonoBehaviour
                         }
 
                     }
+                    
                     else if (isHolding && target.CompareTag("unmovable_holder") && objectHeld.CompareTag("holder")) //tool sur unmovable holder 
                     {
                         FillHolder(target);
@@ -448,12 +465,23 @@ public class LevelOneLevelManager : MonoBehaviour
         {
             objectHeld.LeanMove(objectHeld.GetComponent<StaticHolder>().originalPlacement, 0.5f).setEaseOutQuart();
         }
-        
+        else if (objectHeld.CompareTag("funnel")) //si pas holder ou pissette (donc entonoir ici)
+        {
+            objectHeld.LeanMove(objectHeld.GetComponent<FunnelScript>().originalPlacement, 0.5f).setEaseOutQuart();
+        }
+
         mouseEnabled = false;
         LeanTween.delayedCall(0.5f, EnableMouse);
 
+        if (objectHeld.CompareTag("funnel")){
+            //objectHeld.transform.parent.GetComponent<ContainerObjectScript>().funnelIsOn = false;
+            objectHeld.LeanRotate(new Vector3(180, 0, 0), 0.5f);
+        }
+        else
+        {
+            objectHeld.transform.rotation = baseRot;
+        }
         
-        objectHeld.transform.rotation = baseRot;
         this.objectHeld = null;
 
     }
