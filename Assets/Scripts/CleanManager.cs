@@ -30,6 +30,12 @@ public class CleanManager : MonoBehaviour
     //sponge
     public GameObject sponge;
 
+    private void Start()
+    {
+        //abonnement à event 
+        CleaningScript.OnIsDoneCleaningEvent += NextObject;
+    }
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -38,7 +44,7 @@ public class CleanManager : MonoBehaviour
 
         //indique le fill input pour la barre
         fillInputPerCleaning = 1f / objectCounter;
-        print(fillInputPerCleaning);
+        //print(fillInputPerCleaning);
 
         //set obj count
         objCount = objectCounter;
@@ -50,8 +56,7 @@ public class CleanManager : MonoBehaviour
             gObj.transform.position = initialPosition;
         }
 
-        //abonnement à event 
-        CleaningScript.OnIsDoneCleaningEvent += NextObject;
+        
 
         //premier objet activé
         if (objCount > 0)
