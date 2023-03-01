@@ -74,6 +74,16 @@ public class LevelOneLevelManager : MonoBehaviour
 
     Quaternion baseRot;
 
+    //parent object of placeholders
+    public GameObject PlaceholderErlenmeyer;
+    public GameObject PlaceholderBecher;
+    public GameObject PlaceholderTube;
+
+    //list of placeholders
+    private List<GameObject> PlaceholdersErlenmeyer;
+    private List<GameObject> PlaceholdersTube;
+    private List<GameObject> PlaceholdersBecher;
+
     //*********************************************************** FONCTIONS
 
     private void Awake() //inscription aux events
@@ -93,6 +103,10 @@ public class LevelOneLevelManager : MonoBehaviour
         protocole.DeserializeJSONProtocole(jsonObjectiveFile);
         //set gauge à 0 
         sliderImage.GetComponent<Image>().fillAmount = 1;
+
+        PlaceholdersErlenmeyer = PlaceholdersToList(PlaceholderErlenmeyer);
+        PlaceholdersTube = PlaceholdersToList(PlaceholderTube);
+        PlaceholdersBecher = PlaceholdersToList(PlaceholderBecher);
     }
 
     void Update()
@@ -665,5 +679,31 @@ public class LevelOneLevelManager : MonoBehaviour
         }
     }
 
+    //This function is to be called only once at the start
+    //This function takes the placeholders' parent and returns a list of its children (all the placeholders for a category)
+    //includes placeholders inside empty game object
+    List<GameObject> PlaceholdersToList(GameObject parent)
+    {
+        List<GameObject> list = new List<GameObject>();
+        foreach (Transform placeholder in parent.transform.GetComponentsInChildren<Transform>())
+        {
+            list.Add(placeholder.gameObject);
+            print(placeholder.name);
+        }
+        return list;
+    }
+
+    //This function handles the following behavior : placeholders corresponding to the right object (given as a list) will appear if they are not occupied and are reachable
+    //loops through list of placeholders to make them appear
+    void ShowPlaceholders()
+    {
+
+    }
+
+    //same as above but hides instead
+    void HidePlaceholders()
+    {
+
+    }
 
 }
