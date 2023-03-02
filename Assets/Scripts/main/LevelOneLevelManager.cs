@@ -107,6 +107,10 @@ public class LevelOneLevelManager : MonoBehaviour
         PlaceholdersErlenmeyer = PlaceholdersToList(PlaceholderErlenmeyer);
         PlaceholdersTube = PlaceholdersToList(PlaceholderTube);
         PlaceholdersBecher = PlaceholdersToList(PlaceholderBecher);
+
+        HidePlaceholders("Tube_Essai");
+        HidePlaceholders("Becher");
+        HidePlaceholders("Erlenmeyer");
     }
 
     void Update()
@@ -340,7 +344,7 @@ public class LevelOneLevelManager : MonoBehaviour
 
             if (!tempHiddenPlaceholder.name.Equals("Scale") || isScaleOpen)
             {
-                tempHiddenPlaceholder.SetActive(true);
+                //tempHiddenPlaceholder.SetActive(true);
                 tempHiddenPlaceholder.GetComponent<Placeholderscripttest>().occupyingObject = null;
 
                 this.isHolding = true;
@@ -381,7 +385,8 @@ public class LevelOneLevelManager : MonoBehaviour
                     LeanTween.delayedCall(0.5f, EnableMouse);
                 }
             }
-            
+
+            ShowPlaceholders(target.name);
 
         }
         else if (target.CompareTag("pipette"))
@@ -423,7 +428,7 @@ public class LevelOneLevelManager : MonoBehaviour
     {
         //check put errors
 
-        if (target.GetComponent<Placeholderscripttest>().isReachable && ((target.name.Equals("Placeholder Tube")&&objectHeld.name.Contains("Tube_Essai")) || !target.name.Equals("Placeholder Tube") && !objectHeld.name.Contains("Tube_Essai")))
+        if (target.GetComponent<Placeholderscripttest>().isReachable /*&& ((target.name.Equals("Placeholder Tube")&&objectHeld.name.Contains("Tube_Essai")) || !target.name.Equals("Placeholder Tube") && !objectHeld.name.Contains("Tube_Essai"))*/)
         {
             //DisableMix();
             mixButton.SetActive(false);
@@ -454,12 +459,13 @@ public class LevelOneLevelManager : MonoBehaviour
                 target.GetComponent<Placeholderscripttest>().scaleText.text = string.Format("{0:0.00}g", fakeWeight); //affiche quelque chose de faux
             }
 
+            //placeholders will all dissappear
+            HidePlaceholders(this.objectHeld.name);
+
             objectHeld.transform.SetParent(transform.parent);
             objectHeld.transform.rotation = baseRot;
             this.objectHeld = null;
 
-            //placeholder will dissappear
-            target.SetActive(false);
         }
 
     }
@@ -682,28 +688,82 @@ public class LevelOneLevelManager : MonoBehaviour
     //This function is to be called only once at the start
     //This function takes the placeholders' parent and returns a list of its children (all the placeholders for a category)
     //includes placeholders inside empty game object
-    List<GameObject> PlaceholdersToList(GameObject parent)
+    List<GameObject> PlaceholdersToList(GameObject g)
     {
         List<GameObject> list = new List<GameObject>();
-        foreach (Transform placeholder in parent.transform.GetComponentsInChildren<Transform>())
+        foreach (Transform child in g.transform)
         {
-            list.Add(placeholder.gameObject);
-            print(placeholder.name);
+            list.Add(child.gameObject);
         }
         return list;
     }
 
     //This function handles the following behavior : placeholders corresponding to the right object (given as a list) will appear if they are not occupied and are reachable
     //loops through list of placeholders to make them appear
-    void ShowPlaceholders()
+    void ShowPlaceholders(string objectName)
     {
-
+        if (objectName.Equals("Erlenmeyer"))
+        {
+            foreach(GameObject placeholder in PlaceholdersErlenmeyer)
+            {
+                if (placeholder.GetComponent<Placeholderscripttest>().occupyingObject == null)
+                {
+                    placeholder.SetActive(true);
+                }
+            }
+        }
+        else if (objectName.Equals("Becher"))
+        {
+            foreach (GameObject placeholder in PlaceholdersBecher)
+            {
+                if (placeholder.GetComponent<Placeholderscripttest>().occupyingObject == null)
+                {
+                    placeholder.SetActive(true);
+                }
+            }
+        }
+        else if (objectName.Equals("Tube_Essai"))
+        {
+            foreach (GameObject placeholder in PlaceholdersTube)
+            {
+                if (placeholder.GetComponent<Placeholderscripttest>().occupyingObject == null)
+                {
+                    placeholder.SetActive(true);
+                }
+            }
+        }
     }
 
     //same as above but hides instead
-    void HidePlaceholders()
+    void HidePlaceholders(string objectName)
     {
+        if (objectName.Equals("Erlenmeyer"))
+        {
+            foreach (GameObject placeholder in PlaceholdersErlenmeyer)
+            {
 
+                placeholder.SetActive(false);
+
+            }
+        }
+        else if (objectName.Equals("Becher"))
+        {
+            foreach (GameObject placeholder in PlaceholdersBecher)
+            {
+
+                placeholder.SetActive(false);
+
+            }
+        }
+        else if (objectName.Equals("Tube_Essai"))
+        {
+            foreach (GameObject placeholder in PlaceholdersTube)
+            {
+
+                placeholder.SetActive(false);
+                
+            }
+        }
     }
 
 }
