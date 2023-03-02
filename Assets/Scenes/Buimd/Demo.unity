@@ -34974,6 +34974,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c61b7294d62e3de468697d495e0d9de6, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c61b7294d62e3de468697d495e0d9de6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58bd574e8ff215f41a95edaa74d9dc50, type: 2}
+    - target: {fileID: 2300000, guid: c61b7294d62e3de468697d495e0d9de6, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58bd574e8ff215f41a95edaa74d9dc50, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c61b7294d62e3de468697d495e0d9de6, type: 3}
 --- !u!1 &1770277792 stripped
@@ -35029,6 +35041,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08363525, y: 0.09997299, z: 0.08930066}
   m_Center: {x: 1.0552506e-11, y: 0.049986497, z: 0.0028327147}
+--- !u!114 &1770277798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770277792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ae802b946d68d44a7d760638a7d0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1775167983
 PrefabInstance:
   m_ObjectHideFlags: 0
