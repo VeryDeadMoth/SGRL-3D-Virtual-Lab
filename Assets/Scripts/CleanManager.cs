@@ -27,6 +27,7 @@ public class CleanManager : MonoBehaviour
     public GameObject flecheMinus;
     public GameObject flechePlus;
 
+    public AudioSource sound;
     //sponge
     public GameObject sponge;
 
@@ -119,6 +120,7 @@ public class CleanManager : MonoBehaviour
             LeanTween.delayedCall(1.5f, DisableSelf);
 
         }
+        sound.Play();
     }
 
     void DisableSelf()
