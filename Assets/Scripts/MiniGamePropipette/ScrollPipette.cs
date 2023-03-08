@@ -63,7 +63,7 @@ public class ScrollPipette : MonoBehaviour
             {
                 if (transform.position.y < 1.444)
                 {
-                    mText.SetText("La propipette est en place");
+                    //mText.SetText("La propipette est en place");
                     Debug.Log("La propipette est en place");
                     bienPlace = true;
                 }
@@ -72,7 +72,7 @@ public class ScrollPipette : MonoBehaviour
             else
             {
                 bienPlace = false;
-                mText.SetText("La propipette est cassé");
+                //mText.SetText("La propipette est cassé");
                 Debug.Log(transform.position.y);
                 transform.position = new Vector3(transform.position.x, 1.40f, transform.position.z);//se baisse d'un coup si elle est cassé
             }
@@ -81,7 +81,7 @@ public class ScrollPipette : MonoBehaviour
         else
         {
             bienPlace = false;
-            mText.SetText("La propipette n'est pas en place");
+            //mText.SetText("La propipette n'est pas en place");
         }
         if (Time.realtimeSinceStartup - LastTimeSinceScroll > 0.5f) //remet l'avancé par scroll a 0.05 apres avoir atedu une demi seconde.
         {

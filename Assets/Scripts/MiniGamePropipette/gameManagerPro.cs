@@ -290,7 +290,7 @@ public class gameManagerPro : MonoBehaviour
 
         if (target.CompareTag("pipette"))
         {
-            Vector3 temp = new Vector3(myHand.transform.position.x + 0.55f, myHand.transform.position.y +0.45f , myHand.transform.position.z );
+            Vector3 temp = new Vector3(myHand.transform.position.x, myHand.transform.position.y , myHand.transform.position.z );
             target.LeanMove(temp, 0.5f).setEaseOutQuart();
         }
         else

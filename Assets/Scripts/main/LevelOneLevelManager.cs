@@ -84,6 +84,7 @@ public class LevelOneLevelManager : MonoBehaviour
     private List<GameObject> PlaceholdersTube;
     private List<GameObject> PlaceholdersBecher;
 
+    public ScrollPipette scrollPipette;
     //*********************************************************** FONCTIONS
 
     private void Awake() //inscription aux events
@@ -139,7 +140,7 @@ public class LevelOneLevelManager : MonoBehaviour
                 else
                 {
 
-                    if (!isHolding && (target.CompareTag("container") || target.CompareTag("holder") || target.CompareTag("funnel") || target.CompareTag("pissette"))) //si main vide et target est un container/funnel/holder/pissette
+                    if (!isHolding && (target.CompareTag("container") || target.CompareTag("holder") || target.CompareTag("funnel") || target.CompareTag("pissette")|| target.CompareTag("pipette")|| target.CompareTag("propipette"))) //si main vide et target est un container/funnel/holder/pissette
                     {
                         try{
                            
@@ -199,6 +200,24 @@ public class LevelOneLevelManager : MonoBehaviour
                     else if (isHolding && target.CompareTag("unmovable_holder") && objectHeld.CompareTag("holder")) //tool sur unmovable holder 
                     {
                         FillHolder(target);
+                    }
+                    
+                    else if(isHolding && ((objectHeld.CompareTag("pipette") && target.CompareTag("propipette")) || (objectHeld.CompareTag("propipette") && target.CompareTag("pipette"))))
+                    {
+                        GameObject propipette;
+                        GameObject pipette;
+                        if (objectHeld.CompareTag("pipette") && target.CompareTag("propipette"))
+                        {
+                            propipette = target;
+                            pipette = objectHeld;
+                        }
+                        else
+                        {
+                            propipette = objectHeld;
+                            pipette = target;
+                        }
+                        scrollPipette.enabled = true;
+
                     }
                     else if (target.CompareTag("scale")) //si target est poignet scale
                     {
@@ -391,8 +410,10 @@ public class LevelOneLevelManager : MonoBehaviour
         }
         else if (target.CompareTag("pipette"))
         {
-            target.GetComponent<ContainerObjectScript>().GrabObject();
-
+            //target.GetComponent<ContainerObjectScript>().GrabObject();
+            objectHeld = target;
+            isHolding = true;
+            objectHeld.transform.parent = handPlacement.transform;
             Vector3 temp = new Vector3(handPlacement.transform.position.x, handPlacement.transform.position.y + 2f, handPlacement.transform.position.z);
             target.LeanMove(temp, 0.5f).setEaseOutQuart();
         }
